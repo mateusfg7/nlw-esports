@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         galaxy: "url('/background-galaxy.png')",
+        'nlw-gradient':
+          'linear-gradient(89.86deg, #9572fc 23.08%, #47e7ad 33.94%, #e1d55d 44.57%)',
       },
     },
   },
