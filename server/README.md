@@ -34,9 +34,11 @@ The Back-end app for NLW eSports
 - Listagem de anúncios por game
 - Buscar discord pelo ID do anúncio
 
----
 
-**<# [NOTES] #>**
+<br>
+<br>
+
+# Notes
 
 CDN (Content Delivery Network)
 
@@ -48,3 +50,11 @@ Datas (fuso horário / formatos diferentes i18n)
 
 Pontos Flutuantes
 
+_Status Code_
+* **2**00: Sucesso
+* **3**00: Redirecionamento
+* **4**00: Erros do lado do cliente ou erros de código
+* **5**00: Erros do lado do servidor ou erros inesperados
+
+_Lib Recommendations_
+* **Zod**: _validação de requisições_
