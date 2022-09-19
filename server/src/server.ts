@@ -11,17 +11,44 @@ app.get('/games', async (request, response) => {
     include: {
       _count: {
         select: {
-          ads: true
-        }
-      }
-    }
+          ads: true,
+        },
+      },
+    },
   })
 
   return response.json(games)
 })
 
-app.get('/games/:id/ads', (request, response) => {
-  return response.json([])
+app.get('/games/:id/ads', async (request, response) => {
+  const gameId = request.params.id
+
+  const ads = await prisma.ad.findMany({
+    select: {
+      id: true,
+      name: true,
+      weekDays: true,
+      useVoiceChannel: true,
+      yearsPlaying: true,
+      hourStart: true,
+      hourEnd: true,
+    },
+    where: {
+      gameId,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  })
+
+  return response.json(
+    ads.map((ad) => {
+      return {
+        ...ad,
+        weekDays: ad.weekDays.split(','),
+      }
+    })
+  )
 })
 
 app.post('/ads', (request, response) => {
