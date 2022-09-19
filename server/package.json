@@ -4,7 +4,7 @@
   "main": "src/server.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "tsnd src/server.ts"
+    "dev": "tsnd --exit-child src/server.ts"
   },
   "author": "Mateus Felipe Gonçalves <mateusfelipefg77@gmail.com>",
   "license": "MIT",
